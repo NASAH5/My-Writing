@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>笨鸟先飞</title>
+	<script type="text/javascript" src="../js/bird.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.bg{
+			position: relative;
+    		width: 343px;
+    		height: 480px;
+    		margin: 0 auto;
+    		background: url("../img/bg.jpg");
+    		overflow: hidden;
+		}
+		.score{
+			position: absolute;
+    		top: 50px;
+    		width: 100%;
+    		text-align: center;
+    		z-index: 10;
+		}
+		.bird{
+			position: absolute;
+    		top: 100px;
+    		left: 55px;
+    		transition: all 1s ease;
+		}
+		.bird img:nth-child(2){
+			position: absolute;
+    		top: 20px;
+    		left: 200px;
+    		width: 40px;
+    		height: 26px;
+		}
+		.butn{
+			position: absolute;
+    		top: 300px;
+    		left: 72px;
+    		text-align: center;
+		}
+		.butn span{
+			float: left;
+    		width: 85px;
+    		height: 29px;
+		}
+		.start_butn{
+			background: url("../img/start.jpg") no-repeat;
+		}
+		.submit_butn{
+			margin-left: 30px;
+    		background: url("../img/submit.jpg") no-repeat;
+		}
+		.slider{
+			position: absolute;
+    		top: 422px;
+    		width: 686px;
+		}
+		.slider img{
+			float: left;
+		}
+		#fly_bird{
+			position: absolute;
+    		top: 200px;
+    		left: 50px;
+    		display: none;
+    		z-index: 10;
+		}
+		.pipe{
+			height: 423px;
+			width: 62px;
+			position: absolute;
+			right: 0px;
+		}
+		.up_pipe{
+			width: 62px;
+			background: url('../img/up_pipe.png') 0 bottom no-repeat,url(../img/up_mod.png) repeat-y;
+			position: absolute;
+			top:0px;
+		}
+		.down_pipe{
+			position: absolute;
+			background: url('../img/down_pipe.png') top no-repeat, url('../img/down_mod.png') repeat-y;
+			bottom:0px;
+			width: 62px;
+		}
+		#more_pipes{
+			height: 423px;
+			list-style: none;
+		}
+		#over_img{
+			position: absolute;
+			left:65px;
+			top:-50px;
+		}
+		#over_btn{
+			position: absolute;
+			top:320px;
+			left: -120px;
+		}
+		#over_message{
+			position: absolute;
+			top:500px;
+			left: 34px;
+			width: 269px;
+			height: 135px;
+			background: url('../img/message.jpg') no-repeat;
+			font-size: 24px;
+			font-weight: bold;
+		}
+		#end_score{
+			position: absolute;
+			top:30px;
+			right: 25px;
+		}
+		#best_score{
+			position: absolute;
+			top:80px;
+			right:25px;
+		}
+	</style>
+</head>
+<body>
+	<div class="bg">
+		<!-- 开始部分 -->
+		<div class="game_start">
+			<!-- 分数 -->
+			<div class="score">
+				<img src="../img/0.jpg"/>
+			</div>
+			<!-- 文字与小鸟上下跳动效果 -->
+			<div class="bird">
+				<img src="../img/head.jpg"/>
+				<img src="../img/bird0.png"/>
+			</div>
+			<!-- 按钮 -->
+			<div class="butn">
+				<span class="start_butn"></span>
+				<span class="submit_butn"></span>
+			</div>
+		</div>
+		<!-- 移动条 -->
+		<div class="slider">
+			<img src="../img/slider.jpg"/>
+			<img src="../img/slider.jpg"/>
+		</div>
+		<!-- 小鸟 -->
+		<div id="fly_bird">
+			<img src="../img/bird0.png"/>
+		</div>
+		<!-- 管道 -->
+		<ul id="more_pipes"></ul>
+		<!-- 游戏结束 -->
+		<div class="gameover_wrap">
+			<div id="over_img">
+				<img src="../img/game_over.jpg"/>
+			</div>
+			<div id="over_btn">
+				<img src="../img/ok.jpg"/>
+			</div>
+			<div id="over_message">
+				<span id="end_score"></span>
+				<span id="best_score"></span>
+			</div>
+		</div>
+		<!-- 游戏音乐 -->
+		<audio id="game_music" loop="" src="../music/game_music.mp3"></audio>
+		<audio id="over_music" src="../music/game_over.mp3"></audio>
+		<audio id="bullet" src="../music/bullet.mp3"></audio>
+	</div>
+</body>
+</html>
